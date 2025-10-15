@@ -1,0 +1,16 @@
+[Unit]
+Description=Shipping Service
+
+[Service]
+User=roboshop
+// highlight-start
+Environment=CART_ENDPOINT=cart.hellodevops.fun:8080
+Environment=DB_HOST=mysql.hellodevops.fun
+// highlight-end
+ExecStart=/bin/java -jar /app/shipping.jar
+SyslogIdentifier=shipping
+
+[Install]
+WantedBy=multi-user.target
+
+
